@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 車禍事故處理指引 (Car Accident Guide)
 
-# Run and deploy your AI Studio app
+這是一個基於 Vite + React + TypeScript 開發的車禍事故處理指引應用程式。
 
-This contains everything you need to run your app locally.
+## 功能
+- 提供車禍處理流程指引
+- 整合 React 生態系 (Lucide React Icons)
+- TypeScript 支援
 
-View your app in AI Studio: https://ai.studio/apps/drive/1CZ7T8HujAR1CIttyQO01ZKMO0Bvp4fF6
+## 快速開始
 
-## Run Locally
+### 1. 安裝相依套件
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+```
 
+### 2. 設定環境變數
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+請複製 `.env.example` (若有) 或建立 `.env` 檔案，並填入必要的 keys (如 Gemini API Key)。
+
+### 3. 本地開發
+
+啟動開發伺服器：
+
+```bash
+npm run dev
+```
+
+開啟瀏覽器並訪問 `http://localhost:3000` (或終端機顯示的 URL)。
+
+### 4. 建置與部署
+
+建置正式版：
+
+```bash
+npm run build
+```
+
+預覽建置結果：
+
+```bash
+npm run preview
+```
+
+## 部署
+
+本專案已設定 GitHub Actions。當推送到 `main` 分支時，會自動部署至 GitHub Pages。
+
+請確保 GitHub Repository 的 Settings -> Pages 中，Source 設定為 `gh-pages` branch。
+
+## 技術堆疊
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Lucide React](https://lucide.dev/)

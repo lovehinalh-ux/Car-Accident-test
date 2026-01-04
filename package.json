@@ -1,5 +1,5 @@
 {
-  "name": "copy-of-車禍事故處理指引",
+  "name": "car-accident-guide",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,6 +17,9 @@
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "gh-pages": "^6.1.1"
   }
 }
