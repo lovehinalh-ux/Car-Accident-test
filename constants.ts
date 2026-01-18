@@ -7,7 +7,7 @@ export const STEPS: Record<string, Step> = {
   'p1-s1': {
     id: 'p1-s1',
     phase: Phase.IMMEDIATE,
-    title: '事故現場應變 - Step 1',
+    title: 'Step 1｜事故現場應變',
     question: '現場是否有人受傷，且有立即就醫需求？（包含您自己或對方）',
     options: [
       { label: '有人受傷 / 需救護車', nextStepId: 'p1-s1-injured' },
@@ -17,7 +17,7 @@ export const STEPS: Record<string, Step> = {
   'p1-s1-injured': {
     id: 'p1-s1-injured',
     phase: Phase.IMMEDIATE,
-    title: '優先處理傷患',
+    title: 'Step 1-1｜優先處理傷患',
     alert: React.createElement('span', null, '請優先', React.createElement('b', null, '撥打 119'), ' 叫救護車，生命安全第一！'),
     primaryAction: {
       label: '立即撥打 119',
@@ -88,7 +88,7 @@ export const STEPS: Record<string, Step> = {
   'p2-s1': {
     id: 'p2-s1',
     phase: Phase.INSURANCE,
-    title: '出險與保險（事故後 1–3 天）',
+    title: 'Step 6｜出險與保險（事故後 1–3 天）',
     question: '請儘速聯繫您的保險公司，並提供以下資料：',
     checklist: [
       React.createElement('span', null, '駕駛人', React.createElement('b', null, '駕照')),
@@ -96,7 +96,7 @@ export const STEPS: Record<string, Step> = {
       React.createElement('span', null, React.createElement('b', null, '交通事故登記聯單'))
     ],
     content: [
-      React.createElement('div', { className: "bg-blue-50/50 p-6 rounded-2xl border border-blue-100" }, 
+      React.createElement('div', { className: "bg-blue-50/50 p-6 rounded-2xl border border-blue-100" },
         React.createElement('span', null, '出險後約 3–5 天，會收到理賠人員', React.createElement('b', null, '派案簡訊'), '。若未收到，請主動向保險公司確認。')
       )
     ],
@@ -108,7 +108,7 @@ export const STEPS: Record<string, Step> = {
   'p3-s1': {
     id: 'p3-s1',
     phase: Phase.PREPARATION,
-    title: '為理賠做準備（事故後 1–2 個月）',
+    title: 'Step 7｜為理賠做準備（事故後 1–2 個月）',
     content: [
       React.createElement('div', { className: "text-2xl font-black text-slate-800 pt-2 mb-1" }, "【醫療與傷勢】"),
       React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "持續就醫並保留所有", React.createElement('b', null, "診斷書"), "與", React.createElement('b', null, "醫療費用收據"), "。")),
@@ -119,13 +119,14 @@ export const STEPS: Record<string, Step> = {
       React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "釐清責任歸屬後，才能更精確評估求償額度。"))
     ],
     options: [
-      { label: '進入最後一階段：求償導引', nextStepId: 'p4-s1' }
+      { label: '進入最後一階段：求償導引', nextStepId: 'p4-s1' },
+      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/your_line_id' }
     ]
   },
   'p4-s1': {
     id: 'p4-s1',
     phase: Phase.COMPENSATION,
-    title: '理賠求償項目導引',
+    title: 'Step 8｜理賠求償項目導引',
     question: '常見的可求償項目如下：',
     content: [
       React.createElement('span', null, '1. ', React.createElement('b', null, '醫療費用'), '：含掛號費、自費藥物、住院費等。'),
@@ -137,7 +138,8 @@ export const STEPS: Record<string, Step> = {
     alert: React.createElement('span', null, '實際求償金額需視', React.createElement('b', null, '肇事責任比例'), '進行折算。'),
     note: '本指引僅供參考，不具法律效力。重大案件建議諮詢法律專業人士或保險經紀人處理。',
     options: [
-      { label: '重新檢視處理流程', nextStepId: 'p1-s1' }
+      { label: '重新檢視處理流程', nextStepId: 'p1-s1' },
+      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/your_line_id' }
     ]
   }
 };

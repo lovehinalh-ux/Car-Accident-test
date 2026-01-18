@@ -29,4 +29,6 @@ export interface Option {
   label: string;
   nextStepId: string;
   action?: () => void;
+  isExternal?: boolean;
+  externalUrl?: string;
 }
