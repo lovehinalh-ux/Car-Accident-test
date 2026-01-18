@@ -187,28 +187,30 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Quick Action Dial Buttons for All Phases (Persistent) */}
-      <div className="fixed bottom-36 right-4 z-50 flex flex-col gap-3 group">
-        {/* Ambulance 119 */}
-        <a
-          href="tel:119"
-          className="w-14 h-14 bg-red-600 text-white rounded-full flex flex-col items-center justify-center shadow-lg border-2 border-white/50 active:scale-90 transition-transform hover:scale-110 opacity-90 hover:opacity-100"
-          title="撥打 119"
-        >
-          <span className="font-bold text-[10px] leading-none mb-0.5">救護</span>
-          <span className="font-black text-base leading-none">119</span>
-        </a>
+      {/* Quick Action Dial Buttons for All Phases (Persistent only for initial phases) */}
+      {(currentStep.phase === Phase.IMMEDIATE) && (
+        <div className="fixed bottom-36 right-4 z-50 flex flex-col gap-3 group translate-x-2">
+          {/* Ambulance 119 */}
+          <a
+            href="tel:119"
+            className="w-12 h-12 bg-red-600/90 backdrop-blur-sm text-white rounded-full flex flex-col items-center justify-center shadow-lg border border-white/40 active:scale-90 transition-transform hover:scale-110"
+            title="撥打 119"
+          >
+            <span className="font-bold text-[9px] leading-none mb-0.5 opacity-90">救護</span>
+            <span className="font-black text-sm leading-none">119</span>
+          </a>
 
-        {/* Police 110 */}
-        <a
-          href="tel:110"
-          className="w-14 h-14 bg-slate-800 text-white rounded-full flex flex-col items-center justify-center shadow-lg border-2 border-white/50 active:scale-90 transition-transform hover:scale-110 opacity-90 hover:opacity-100"
-          title="撥打 110"
-        >
-          <span className="font-bold text-[10px] leading-none mb-0.5">警察</span>
-          <span className="font-black text-base leading-none">110</span>
-        </a>
-      </div>
+          {/* Police 110 */}
+          <a
+            href="tel:110"
+            className="w-12 h-12 bg-slate-800/90 backdrop-blur-sm text-white rounded-full flex flex-col items-center justify-center shadow-lg border border-white/40 active:scale-90 transition-transform hover:scale-110"
+            title="撥打 110"
+          >
+            <span className="font-bold text-[9px] leading-none mb-0.5 opacity-90">警察</span>
+            <span className="font-black text-sm leading-none">110</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 };
