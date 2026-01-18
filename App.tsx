@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 
 const App: React.FC = () => {
+  const [showLanding, setShowLanding] = useState<boolean>(true);
   const [currentStepId, setCurrentStepId] = useState<string>('p1-s1');
   const [completedSteps, setCompletedSteps] = useState<string[]>([]);
   const currentStep = STEPS[currentStepId];
@@ -57,6 +58,47 @@ const App: React.FC = () => {
   // Check if it's the first step to apply special centering layout
   const isFirstStep = currentStepId === 'p1-s1';
 
+  // Landing Page View
+  if (showLanding) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center w-full max-w-[480px] mx-auto bg-[#F0F9FF] px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2 animate-blob"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-2000"></div>
+
+        <div className="z-10 flex flex-col items-center text-center space-y-8 animate-in fade-in zoom-in duration-700">
+          <div className="w-24 h-24 bg-white rounded-3xl shadow-xl flex items-center justify-center mb-4 ring-4 ring-blue-50">
+            <ShieldAlert className="w-12 h-12 text-[#0EA5E9]" />
+          </div>
+
+          <div className="space-y-4">
+            <h1 className="text-3xl font-black text-slate-800 leading-tight tracking-tight">
+              車禍事故<br /><span className="text-[#0EA5E9]">現場應變指南</span>
+            </h1>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-bold tracking-wide">
+              2026 最新法規對應版
+            </div>
+            <p className="text-slate-500 text-lg leading-relaxed max-w-[280px] mx-auto">
+              不慌張、不吃虧<br />一步步引導您完成事故處理
+            </p>
+          </div>
+
+          <button
+            onClick={() => setShowLanding(false)}
+            className="w-full max-w-[280px] py-4 rounded-xl bg-[#0EA5E9] text-white font-black text-xl shadow-[0_4px_20px_rgba(14,165,233,0.4)] hover:bg-[#0284C7] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
+          >
+            開始使用
+            <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
+
+        <div className="absolute bottom-8 text-slate-400 text-xs text-center font-medium">
+          Professional Traffic Accident Support
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col w-full max-w-[480px] mx-auto bg-[#F0F9FF] shadow-2xl relative">
       {/* Header */}
@@ -75,6 +117,7 @@ const App: React.FC = () => {
           </div>
           <button
             onClick={() => {
+              setShowLanding(true);
               setCurrentStepId('p1-s1');
               setCompletedSteps([]);
             }}
@@ -173,7 +216,7 @@ const App: React.FC = () => {
               className={`w-full py-4 px-6 rounded-xl flex items-center justify-between font-bold text-lg transition-all active:scale-[0.98] shadow-md ${option.isExternal
                 ? 'bg-[#00C300] text-white hover:bg-[#00B300] shadow-[#00C300]/20' // LINE Green
                 : idx === 0
-                  ? 'bg-[#0EA5E9] text-white hover:bg-[#0284C7] shadow-sky-500/30' // Sky Blue Primary Action
+                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/30' // Original Blue
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                 }`}
             >
@@ -187,8 +230,8 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Quick Action Dial Buttons for All Phases (Persistent only for initial phases) */}
-      {(currentStep.phase === Phase.IMMEDIATE) && (
+      {/* Quick Action Dial Buttons (Visible only on Step 1 & Step 2) */}
+      {['p1-s1', 'p1-s1-injured', 'p1-s2'].includes(currentStep.id) && (
         <div className="fixed bottom-36 right-4 z-50 flex flex-col gap-3 group translate-x-2">
           {/* Ambulance 119 */}
           <a

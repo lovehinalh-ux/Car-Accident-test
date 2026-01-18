@@ -88,39 +88,35 @@ export const STEPS: Record<string, Step> = {
   'p2-s1': {
     id: 'p2-s1',
     phase: Phase.INSURANCE,
-    title: 'Step 6｜出險與保險（事故後 1–3 天）',
+    title: 'Step 6｜出險與保險',
     question: '請儘速聯繫您的保險公司，並提供以下資料：',
     checklist: [
-      React.createElement('span', null, '駕駛人', React.createElement('b', null, '駕照')),
-      React.createElement('span', null, '汽機車', React.createElement('b', null, '行照')),
-      React.createElement('span', null, React.createElement('b', null, '交通事故登記聯單'))
+      '駕駛人駕照',
+      '汽機車行照',
+      '交通事故登記聯單'
     ],
     content: [
-      React.createElement('div', { className: "bg-blue-50/50 p-6 rounded-2xl border border-blue-100" },
-        React.createElement('span', null, '出險後約 3–5 天，會收到理賠人員', React.createElement('b', null, '派案簡訊'), '。若未收到，請主動向保險公司確認。')
-      )
+      '出險後約 3–5 天，會收到理賠人員派案簡訊。若未收到，請主動向保險公司確認。'
     ],
-    note: '💡 提示：駕駛人與車主若不同人，文件簽署方式會有差異。維修前請先拍照並等待保險人員完成勘車。',
     options: [
-      { label: '進入下一階段：後續準備', nextStepId: 'p3-s1' }
+      { label: '進入下一階段：求償準備', nextStepId: 'p3-s1' },
+      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/AbIViMZWo3' }
     ]
   },
   'p3-s1': {
     id: 'p3-s1',
     phase: Phase.PREPARATION,
-    title: 'Step 7｜為理賠做準備（事故後 1–2 個月）',
-    content: [
-      React.createElement('div', { className: "text-2xl font-black text-slate-800 pt-2 mb-1" }, "【醫療與傷勢】"),
-      React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "持續就醫並保留所有", React.createElement('b', null, "診斷書"), "與", React.createElement('b', null, "醫療費用收據"), "。")),
-      React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "診斷書註明內容越詳盡，越有助於傷勢認定。")),
-      React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "在傷勢穩定前，不建議過早進行和解調解。")),
-      React.createElement('div', { className: "text-2xl font-black text-slate-800 pt-6 mb-1" }, "【責任與證據】"),
-      React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "事故 30 天後可向警方申請", React.createElement('b', null, "「初判表」"), "。")),
-      React.createElement('div', { className: "flex items-start gap-2" }, "✅ ", React.createElement('span', null, "釐清責任歸屬後，才能更精確評估求償額度。"))
+    title: 'Step 7｜為理賠做準備',
+    question: '這段時間（約 1–2 個月），請持續就醫並收集單據：',
+    checklist: [
+      '醫療收據（正本或副本）',
+      '診斷證明書（須註明需休養天數/專人看護）',
+      '請假證明 / 薪資證明',
+      '其他財損單據（修車估價單等）'
     ],
     options: [
       { label: '進入最後一階段：求償導引', nextStepId: 'p4-s1' },
-      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/your_line_id' }
+      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/AbIViMZWo3' }
     ]
   },
   'p4-s1': {
@@ -132,8 +128,8 @@ export const STEPS: Record<string, Step> = {
       React.createElement('span', null, '1. ', React.createElement('b', null, '醫療費用'), '：含掛號費、自費藥物、住院費等。'),
       React.createElement('span', null, '2. ', React.createElement('b', null, '薪資損失'), '：依據醫院診斷書建議之休養天數。'),
       React.createElement('span', null, '3. ', React.createElement('b', null, '精神慰撫金'), '：視傷勢嚴重程度與對生活的影響。'),
-      React.createElement('span', null, '4. ', React.createElement('b', null, '車輛維修費'), '：需扣除折舊或視責任比例分擔。'),
-      React.createElement('span', null, '5. ', React.createElement('b', null, '財損賠償'), '：個人物品（安全帽、手機等）毀損。')
+      React.createElement('span', null, '4. ', React.createElement('b', null, '交通費用'), '：往返醫院之交通開支（需收據）。'),
+      React.createElement('span', null, '5. ', React.createElement('b', null, '看護費用'), '：若診斷書註明需專人看護。')
     ],
     alert: React.createElement('span', null, '實際求償金額需視', React.createElement('b', null, '肇事責任比例'), '進行折算。'),
     note: '本指引僅供參考，不具法律效力。重大案件建議諮詢法律專業人士或保險經紀人處理。',
