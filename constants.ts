@@ -31,7 +31,7 @@ export const STEPS: Record<string, Step> = {
     id: 'p1-s2',
     phase: Phase.IMMEDIATE,
     title: 'Step 2｜是否報警',
-    content: [
+    checklist: [
       React.createElement('span', null, React.createElement('b', null, '撥打 110'), ' 請警方到場處理'),
       React.createElement('span', null, '切勿擅自離開現場，避免被認定為', React.createElement('b', null, '「肇事逃逸」'), '。'),
       React.createElement('span', null, '不建議於現場', React.createElement('b', null, '私下和解'), '，以免後續權益受損且保險不理賠。')
@@ -63,7 +63,7 @@ export const STEPS: Record<string, Step> = {
     id: 'p1-s4',
     phase: Phase.IMMEDIATE,
     title: 'Step 4｜警方筆錄',
-    content: [
+    checklist: [
       React.createElement('span', null, '筆錄請依照您的', React.createElement('b', null, '真實記憶'), '陳述即可。'),
       React.createElement('span', null, '避免', React.createElement('b', null, '自行推測'), '或過度解釋未確定的事故原因。'),
       React.createElement('span', null, '若有', React.createElement('b', null, '行車紀錄器'), '，請主動提供影片供警方參考。')
@@ -76,7 +76,7 @@ export const STEPS: Record<string, Step> = {
     id: 'p1-s5',
     phase: Phase.IMMEDIATE,
     title: 'Step 5｜現場處理完成',
-    content: [
+    checklist: [
       React.createElement('span', null, '警察處理完畢後，您會取得', React.createElement('b', null, '「交通事故登記聯單」'), '。'),
       React.createElement('span', null, '請妥善保存，這張單據是後續', React.createElement('b', null, '出險與理賠'), '的核心文件。')
     ],
@@ -108,11 +108,17 @@ export const STEPS: Record<string, Step> = {
     phase: Phase.PREPARATION,
     title: 'Step 7｜為理賠做準備',
     question: '這段時間（約 1–2 個月），請持續就醫並收集單據：',
+    checklistTitle: '理賠資料收集',
     checklist: [
       '醫療收據（正本或副本）',
       '診斷證明書（須註明需休養天數/專人看護）',
       '請假證明 / 薪資證明',
       '其他財損單據（修車估價單等）'
+    ],
+    confirmationItems: [
+      '初判表',
+      '現場圖',
+      '現場照片'
     ],
     options: [
       { label: '進入最後一階段：求償導引', nextStepId: 'p4-s1' },
@@ -124,18 +130,19 @@ export const STEPS: Record<string, Step> = {
     phase: Phase.COMPENSATION,
     title: 'Step 8｜理賠求償項目導引',
     question: '常見的可求償項目如下：',
-    content: [
-      React.createElement('span', null, '1. ', React.createElement('b', null, '醫療費用'), '：含掛號費、自費藥物、住院費等。'),
-      React.createElement('span', null, '2. ', React.createElement('b', null, '薪資損失'), '：依據醫院診斷書建議之休養天數。'),
-      React.createElement('span', null, '3. ', React.createElement('b', null, '精神慰撫金'), '：視傷勢嚴重程度與對生活的影響。'),
-      React.createElement('span', null, '4. ', React.createElement('b', null, '交通費用'), '：往返醫院之交通開支（需收據）。'),
-      React.createElement('span', null, '5. ', React.createElement('b', null, '看護費用'), '：若診斷書註明需專人看護。')
+    checklist: [
+      React.createElement('span', null, React.createElement('b', null, '醫療費用'), '：含掛號費、自費藥物、住院費等。'),
+      React.createElement('span', null, React.createElement('b', null, '薪資損失'), '：依據醫院診斷書建議之休養天數。'),
+      React.createElement('span', null, React.createElement('b', null, '精神慰撫金'), '：視傷勢嚴重程度與對生活的影響。'),
+      React.createElement('span', null, React.createElement('b', null, '交通費用'), '：往返醫院之交通開支（需收據）。'),
+      React.createElement('span', null, React.createElement('b', null, '看護費用'), '：若診斷書註明需專人看護。')
     ],
     alert: React.createElement('span', null, '實際求償金額需視', React.createElement('b', null, '肇事責任比例'), '進行折算。'),
     note: '本指引僅供參考，不具法律效力。重大案件建議諮詢法律專業人士或保險經紀人處理。',
     options: [
       { label: '重新檢視處理流程', nextStepId: 'p1-s1' },
-      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/your_line_id' }
+      { label: '加入 LINE 諮詢', nextStepId: 'line-consult', isExternal: true, externalUrl: 'https://line.me/ti/p/your_line_id' },
+      { label: '建立車禍求償表小幫手', nextStepId: 'calculator', isExternal: true, externalUrl: 'https://lovehinalh-ux.github.io/CarClaim-AutoComp-Expert/' }
     ]
   }
 };

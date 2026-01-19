@@ -17,8 +17,10 @@ export interface Step {
   content?: React.ReactNode[];
   options?: Option[];
   checklist?: React.ReactNode[];
+  checklistTitle?: string;
   alert?: React.ReactNode;
   note?: React.ReactNode;
+  confirmationItems?: string[];
   primaryAction?: {
     label: string;
     phone: string;

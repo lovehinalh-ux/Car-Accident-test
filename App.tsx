@@ -153,9 +153,38 @@ const App: React.FC = () => {
         {/* Dynamic Content Area */}
         <section className="px-5 py-6 space-y-6">
 
+          {/* Confirmation Items (Moved to Top) */}
+          {currentStep.confirmationItems && (
+            <div className="space-y-4 pb-2">
+              <div className="flex items-center gap-2 border-b-2 border-amber-100 pb-2 mb-2">
+                <ClipboardCheck className="w-6 h-6 text-amber-500" />
+                <h3 className="text-lg font-black text-amber-600 tracking-wide">
+                  重要申請文件
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {currentStep.confirmationItems.map((item, idx) => (
+                  <div key={idx} className="flex gap-4 bg-amber-50 p-5 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition-all">
+                    <div className="mt-0.5 min-w-[24px]">
+                      <div className="w-6 h-6 rounded-full bg-amber-200 text-amber-700 flex items-center justify-center text-xs font-black">
+                        {idx + 1}
+                      </div>
+                    </div>
+                    <span className="text-lg font-bold text-slate-800 leading-relaxed">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Action Cards (Checklist) */}
           {currentStep.checklist && (
             <div className="space-y-3">
+              {currentStep.checklistTitle && (
+                <h3 className="text-xl font-bold text-[#0EA5E9] border-l-4 border-[#0EA5E9] pl-3 mb-2">
+                  {currentStep.checklistTitle}
+                </h3>
+              )}
               {currentStep.checklist.map((item, idx) => (
                 <div key={idx} className="flex gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                   <div className="mt-0.5 min-w-[24px]">
@@ -166,6 +195,8 @@ const App: React.FC = () => {
               ))}
             </div>
           )}
+
+
 
           {/* Alert Box */}
           {currentStep.alert && (
