@@ -59,12 +59,58 @@
     }
     </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            safety: {
+              orange: '#FF5F00',
+              yellow: '#FFD600',
+              black: '#111111',
+              white: '#F0F0F0',
+              blue: '#0047AB',
+            }
+          },
+          boxShadow: {
+            'hard': '4px 4px 0px 0px #111111',
+            'hard-lg': '8px 8px 0px 0px #111111',
+            'hard-xl': '12px 12px 0px 0px #111111',
+          }
+        }
+      }
+    }
+  </script>
   <style>
     body {
-      font-family: 'Noto+Sans+TC', sans-serif;
-      background: linear-gradient(135deg, #e6ddb5 0%, #ffffff 50%, #e6ddb5 100%);
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #F0F0F0;
+      /* Dotted grid background */
+      background-image: radial-gradient(#ccc 1px, transparent 1px);
+      background-size: 20px 20px;
       min-height: 100vh;
+      color: #111;
+    }
+
+    .bg-hazard-stripes {
+      background: repeating-linear-gradient(45deg,
+          #FFD600,
+          #FFD600 10px,
+          #111 10px,
+          #111 20px);
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 3px solid #111;
     }
   </style>
   <script type="importmap">
